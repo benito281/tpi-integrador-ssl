@@ -1,4 +1,4 @@
-import ply.lex as lex
+import ply.lex as lex 
 
 # definicion de tokens
 tokens = ['LLA_A', 'LLA_C', 'CORCH_A', 'CORCH_C', 'COMILLAS', 'COMA', '2PUNTOS', 'STRING', 'INTEGER', 'BOOLEAN', 'DATE', 'FLOAT',

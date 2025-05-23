@@ -1,5 +1,5 @@
 
-from analizador_lexico import MyLexer as mytokens
+from lexer import MyLexer as mytokens
 
 lexer = mytokens()
 lexer.build() #Construye el LEXER
