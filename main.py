@@ -1,18 +1,23 @@
-import ply.lex as lex
-from analizador_lexico import Tokens as MyTokens
 
-lexer = lex.lex(module=MyTokens)
+from analizador_lexico import MyLexer as mytokens
+
+lexer = mytokens()
+lexer.build() #Construye el LEXER
 
 def leer_json_teclado():
-    print("Ingrese el JSON (Ctrl+Z para terminar):")
+    print("Ingrese el JSON (Presione ENTER y escriba FIN, luego enter):")
     lineas = []
     try:
         while True:
             linea = input()
+            if linea.strip().upper() == 'FIN': #Ayuda a poder terminar de analizar lo que esta en consola
+                break
             lineas.append(linea)
     except EOFError:
         pass
     return '\n'.join(lineas)
+
+
 
 
 def leer_json_archivo(nombre_arch):
@@ -44,15 +49,10 @@ def principal():
             print("Opción no válida")
             continue
 
-        # Tokenizar el texto JSON
-        lexer.input(texto_json)
+        # Tokenizar el texto JSON mostrar mensaje
+        lexer.test(texto_json)
+        
 
-        # Imprimir los tokens generados
-        while True:
-            tok = lexer.token()
-            if not tok:
-                break
-            print(f'TOKEN ENCONTRADO: {tok.type}')
 
         if opcion == '1':
             repetir = input("¿Desea ingresar otro JSON? (s/n): ")
