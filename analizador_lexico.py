@@ -147,8 +147,18 @@ class MyLexer(object):
 
         # Manejo de errores
         def t_error(self,t):
-            print(f"Caracter ilegal '{t.value[0]}'")
-            print(f"Error encontrado en la posicion  '{t.lexer.lineno}'")
+            # Para calcular la columna, buscamos la última '\n' antes de la posición:
+            last_cr = t.lexer.lexdata.rfind('\n', 0, t.lexpos)
+            line = t.lexer.lineno #Linea donde se encontro el error
+            if last_cr < 0:
+                col = t.lexpos
+            else:
+                col = t.lexpos - last_cr - 1
+
+            print(f"Caracter ilegal '{t.value[0]}' en línea {line}, columna {col}")
+
+            """ print(f"Caracter ilegal '{t.value[0]}'")
+            print(f"Error encontrado en la posicion  '{t.lexer.lineno}'") """
             t.lexer.skip(1)
         
         # Método para construir el lexer
