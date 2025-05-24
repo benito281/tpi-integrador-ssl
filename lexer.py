@@ -5,7 +5,7 @@ class MyLexer(object):
         tokens = ('LLA_A', 'LLA_C', 'CORCH_A', 'CORCH_C', 'COMILLAS', 'COMA', '2PUNTOS', 'STRING', 'INTEGER', 'BOOLEAN', 'DATE', 'FLOAT',
           'NOMBRE_TEAM', 'CALLE', 'CIUDAD', 'PAIS', 'ACTIVO', 'FECHA_FIN', 'FECHA_INICIO',
           'UNIVERSIDAD', 'ALIANZA', 'CARRERA', 'ASIGNATURA', 'LINK', 'CARGO', 'ESTADO', 'IDENTIDAD', 'DIRECCION',
-          'TAREA', 'EQUIPOS', 'INTEGRANTES', 'PROYECTOS', 'EDAD', 'FOTO', 'VIDEO', 'CONCLUSION'
+          'TAREA', 'EQUIPOS', 'INTEGRANTES', 'PROYECTOS', 'EDAD', 'FOTO', 'VIDEO', 'CONCLUSION', 'GUION','PUNTO'
         )
         # Expresiones regulares tokens simples
         t_LLA_A = r'\{'
@@ -16,6 +16,8 @@ class MyLexer(object):
         t_2PUNTOS = r':'
         t_COMILLAS = r'"'
         t_ignore_COMMENT = r'\#.*'
+        t_GUION = r'-'
+        t_PUNTO = r'.'
 
 
     # Expresiones regulares para tokens especificos
