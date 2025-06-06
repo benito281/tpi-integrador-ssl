@@ -1,5 +1,5 @@
 
-from lexer import MyLexer as mytokens
+from lexer import LexerTokens as mytokens
 
 lexer = mytokens()
 lexer.build() #Construye el LEXER
