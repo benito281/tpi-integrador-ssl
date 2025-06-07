@@ -1,8 +1,7 @@
 import ply.lex as lex
 
-
 class LexerTokens:
-    # Lista de tokens
+    # Lista de tokens.
     tokens = (
         'LLA_A', 'LLA_C', 'CORCH_A', 'CORCH_C', 'COMILLAS', 'COMA', '2PUNTOS',
         'STRING', 'INTEGER', 'BOOLEAN', 'DATE', 'FLOAT', 'EMAIL',
@@ -11,7 +10,7 @@ class LexerTokens:
         'TAREA', 'EQUIPOS', 'INTEGRANTES', 'PROYECTOS', 'EDAD', 'FOTO', 'VIDEO', 'CONCLUSION', 'PUNTO'
     )
 
-    # Tokens simples
+    # Tokens simples.
     t_LLA_A = r'\{'
     t_LLA_C = r'\}'
     t_CORCH_A = r'\['
@@ -22,93 +21,92 @@ class LexerTokens:
     #t_GUION = r'-'
     t_PUNTO = r'\.'
 
-    # Expresiones regulares para tokens especificos
+    # Expresiones regulares para tokens específicos.
     def t_NOMBRE_TEAM(self, t):
         r'"nombre_equipo"'
-        print('-> Token especifico encontrado: nombre_equipo')
+        print('\n-> Token específico encontrado: nombre_equipo')
 
     def t_NOMBRE(self, t):
         r'"nombre"'
-        print('-> Token especifico encontrado: nombre')
+        print('\n-> Token específico encontrado: nombre')
 
     def t_IDENTIDAD(self, t):
         r'"identidad_equipo"'
-        print('-> Token especifico encontrado: identidad_equipo')
+        print('\n-> Token específico encontrado: identidad_equipo')
 
     def t_LINK(self, t):
         r'"link"'
-        print('-> Token especifico encontrado: link')
+        print('\n-> Token específico encontrado: link')
 
     def t_ASIGNATURA(self, t):
         r'"asignatura"'
-        print('-> Token especifico encontrado: asignatura')
+        print('\n-> Token específico encontrado: asignatura')
 
     def t_CARRERA(self, t):
         r'"carrera"'
-        print('-> Token especifico encontrado: carrera')
+        print('\n-> Token específico encontrado: carrera')
 
     def t_UNIVERSIDAD(self, t):
         r'"universidad_regional"'
-        print('-> Token especifico encontrado: universidad_regional')
+        print('\n-> Token específico encontrado: universidad_regional')
 
     def t_DIRECCION(self, t):
         r'"direccion"'
-        print('-> Token especifico encontrado: direccion')
+        print('\n-> Token específico encontrado: direccion')
 
     def t_CALLE(self, t):
         r'"calle"'
-        print('-> Token especifico encontrado: calle')
+        print('\n-> Token específico encontrado: calle')
 
     def t_CIUDAD(self, t):
         r'"CIUDAD"'
-        print('-> Token especifico encontrado: ciudad')
+        print('\n-> Token específico encontrado: ciudad')
 
     def t_PAIS(self, t):
         r'"pais"'
-        print('-> Token especifico encontrado: pais')
+        print('\n-> Token específico encontrado: pais')
 
     def t_ACTIVO(self, t):
         r'"activo"'
-        print('-> Token especifico encontrado: activo')
+        print('\n-> Token específico encontrado: activo')
 
     def t_FECHA_FIN(self, t):
         r'"fecha_fin"'
-        print('-> Token especifico encontrado: fecha_fin')
+        print('\n-> Token específico encontrado: fecha_fin')
 
     def t_FECHA_INICIO(self, t):
         r'"fecha_inicio"'
-        print('-> Token especifico encontrado: fecha_inicio')
+        print('\n-> Token específico encontrado: fecha_inicio')
 
     def t_ALIANZA(self, t):
         r'"alianza"'
-        print('-> Token especifico encontrado: alianza')
+        print('\n-> Token específico encontrado: alianza')
 
     def t_CARGO(self, t):
         r'"cargo"'
-        print('-> Token especifico encontrado: cargo')
+        print('\n-> Token específico encontrado: cargo')
 
     def t_ESTADO(self, t):
         r'"estado"'
-        print('-> Token especifico encontrado: estado')
+        print('\n-> Token específico encontrado: estado')
 
     def t_VIDEO(self, t):
         r'"video"'
-        print('-> Token especifico encontrado: video')
+        print('\n-> Token específico encontrado: video')
 
     def t_EDAD(self, t):
         r'"edad"'
-        print('-> Token especifico encontrado: edad')
+        print('\n-> Token específico encontrado: edad')
 
     def t_FOTO(self, t):
         r'"foto"'
-        print('-> Token especifico encontrado: foto')
+        print('\n-> Token específico encontrado: foto')
 
     def t_CONCLUSION(self, t):
         r'"conclusion"'
-        print('-> Token especifico encontrado: conclusion')
+        print('\n-> Token específico encontrado: conclusion')
 
-    # Tokens con valores
-
+    # Tokens con valores.
     def t_DATE(self, t):
         r'"(19[0-9]{2}|20[0-9]{2})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"'
         t.value = t.value.strip('"')
@@ -125,7 +123,7 @@ class LexerTokens:
         if t.value < 0:
             print("Error: El número flotante no puede ser negativo.")
         else:
-            print('-> Token especifico encontrado: float')
+            print('\n-> Token específico encontrado: float')
         return t
 
     def t_INTEGER(self, t):
@@ -141,10 +139,10 @@ class LexerTokens:
         t.value = t.value.strip('"')
         return t
 
-    # Ignorar espacios y tabulaciones
+    # Ignorar espacios y tabulaciones.
     t_ignore = ' \t\n\r'
 
-    # Manejo de errores
+    # Manejo de errores.
     def t_error(self, t):
         last_cr = t.lexer.lexdata.rfind('\n', 0, t.lexpos)
         line = t.lexer.lineno
@@ -152,15 +150,15 @@ class LexerTokens:
         print(f"Caracter ilegal '{t.value[0]}' en línea {line}, columna {col}")
         t.lexer.skip(1)
 
-    # Construir el lexer
+    # Construir el lexer.
     def build(self, **kwargs):
         self.lexer = lex.lex(module=self, **kwargs)
 
-    # Método de prueba
+    # Método de prueba.
     def test(self, data):
         self.lexer.input(data)
         while True:
             tok = self.lexer.token()
             if not tok:
                 break
-            print(f'Token simple : {tok.type} encontrado')
+            print(f'---> Token simple encontrado: {tok.type}')
