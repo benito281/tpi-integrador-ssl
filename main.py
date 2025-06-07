@@ -27,30 +27,37 @@ def leer_json_archivo(nombre_arch):
 # Función principal
 def principal():
     while True:
-        opcion = input(
-            "Seleccione una opción (1: Ingresar JSON por teclado, 2: Leer JSON desde archivo, 3: Salir): ")
-        if opcion == '1':
-            texto_json = leer_json_teclado()
-        elif opcion == '2':
-            nombre_arch = input(
-                "Ingrese el nombre del archivo (ruta completa si no está en el mismo directorio): ")
-            texto_json = leer_json_archivo(nombre_arch)
-            if texto_json is None:
-                continue
-        elif opcion == '3':
-            print("Saliendo...")
-            break
-        else:
-            print("Opción no válida")
-            continue
-
-        # Tokenizar el texto JSON mostrar mensaje
-        lexer.test(texto_json)
-        
-        if opcion == '1':
-            repetir = input("¿Desea ingresar otro JSON? (s/n): ")
-            if repetir.lower() != 's':
+        try:
+            opcion = input(
+                "Seleccione una opción (1: Ingresar JSON por teclado, 2: Leer JSON desde archivo, 3: Salir): ")
+            if opcion == '1':
+                texto_json = leer_json_teclado()
+            elif opcion == '2':
+                nombre_arch = input(
+                    "Ingrese el nombre del archivo (ruta completa si no está en el mismo directorio): ")
+                texto_json = leer_json_archivo(nombre_arch)
+                if texto_json is None:
+                    continue
+            elif opcion == '3':
+                print("Saliendo...")
                 break
+            else:
+                print("Opción no válida")
+                continue
+
+            # Tokenizar el texto JSON mostrar mensaje
+            lexer.test(texto_json)
+            
+            if opcion == '1':
+                repetir = input("¿Desea ingresar otro JSON? (s/n): ")
+                if repetir.lower() != 's':
+                    break
+        
+        # Si se ingresa un caracter de fin de archivo debemos
+        # abortar la ejecución.
+        except EOFError:
+            print("¡Nos vamos!")
+            break
 
 if __name__ == "__main__":
     principal()
