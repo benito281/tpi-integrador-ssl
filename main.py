@@ -16,6 +16,8 @@ def leer_json_teclado():
     print("Después de introducir cada línea presione ENTER, y luego presione")
     print("presione CTRL + Z en Windows o CTRL + D en Linux cuando haya")
     print("introducido todas las líneas que se deben analizar.\n")
+    print("(En Windows, no se olvide de presionar ENTER luego de introducir el")
+    print("CTRL + Z)\n")
 
     lineas = []
     try:
@@ -38,7 +40,7 @@ def principal():
         clear_screen()
         print("==================================================================")
         print("Presentación del lexer del grupo Los Hijos de Chomsky. El programa")
-        print("cuenta con tres operaciones posibles:")
+        print("cuenta con tres operaciones posibles:\n")
         print("1. Ingresar una entrada interactivamente por teclado.")
         print("2. Leer una entrada desde un archivo.")
         print("3. Salir.")
@@ -56,13 +58,15 @@ def principal():
                 print("A continuación, deberá introducir el nombre del archivo JSON que se")
                 print("desea analizar. Si este se encuentra en otra carpeta, recuerde que")
                 print("debe especificar su ubicación.\n")
+                print("(En Windows, no se olvide de presionar ENTER luego de introducir el")
+                print("CTRL + Z)\n")
                 nombre_arch = input("Nombre del archivo: ")
+                print("-------------------------------------------------------------------")
                 texto_json = leer_json_archivo(nombre_arch)
 
                 # Si no se introdujo ningún nombre de archivo debemos hacer
                 # algo al respecto.
                 if texto_json is not None:
-                    print("-------------------------------------------------------------------")
                     lexer.test(texto_json)
                 else:
                     print("No se introdujo el nombre de ningún archivo o este no existe.")
@@ -78,8 +82,8 @@ def principal():
             try:
                 print("-------------------------------------------------------------------")
                 print("Ingrese 'S' o 's' si desea volver al menú, y CTRL + Z (CTRL + D en")
-                print("Linux) para salir del programa.")
-                repetir = input("\nElección: ")
+                print("Linux) para salir del programa.\n")
+                repetir = input("Elección: ")
 
                 # Elegimos qué hacer en función de la elección.
                 if repetir.lower() != 's':
