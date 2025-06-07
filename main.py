@@ -65,7 +65,7 @@ def principal():
                     print("-------------------------------------------------------------------")
                     lexer.test(texto_json)
                 else:
-                    print("No se introdujo el nombre de ningún archivo.")
+                    print("No se introdujo el nombre de ningún archivo o este no existe.")
 
             elif opcion == '3':
                 break
