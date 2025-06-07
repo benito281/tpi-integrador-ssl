@@ -2,3 +2,5 @@ venv
 .github
 .devcontainer
 __pycache__
+dist
+build
