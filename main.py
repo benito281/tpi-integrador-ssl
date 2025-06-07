@@ -56,7 +56,8 @@ def principal():
         # Si se ingresa un caracter de fin de archivo debemos
         # abortar la ejecución.
         except EOFError:
-            print("¡Nos vamos!")
+            print("\n")
+            print("Caracter de fin de archivo ingresado!")
             break
 
 if __name__ == "__main__":
