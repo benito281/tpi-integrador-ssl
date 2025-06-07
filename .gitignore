@@ -4,3 +4,7 @@ venv
 __pycache__
 dist
 build
+bin
+lib
+lib64
+pyvenv.cfg
