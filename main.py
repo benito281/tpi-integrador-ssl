@@ -1,4 +1,3 @@
-
 from lexer import LexerTokens as tokens
 
 lexer = tokens() #Instancia de la clase LexerTokens
@@ -17,7 +16,6 @@ def leer_json_teclado():
         pass
     return '\n'.join(lineas)
 
-
 def leer_json_archivo(nombre_arch):
     try:
         with open(nombre_arch, 'r', encoding='utf-8') as file:
@@ -25,7 +23,6 @@ def leer_json_archivo(nombre_arch):
     except FileNotFoundError:
         print(f"Archivo no encontrado: {nombre_arch}")
         return None
-
 
 # Función principal
 def principal():
@@ -54,7 +51,6 @@ def principal():
             repetir = input("¿Desea ingresar otro JSON? (s/n): ")
             if repetir.lower() != 's':
                 break
-
 
 if __name__ == "__main__":
     principal()
