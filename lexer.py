@@ -9,13 +9,12 @@ class LexerTokens(object):
         )
         # Expresiones regulares tokens simples
         t_LLA_A = r'\{'
-        t_LLA_C = r'\}'
+        t_LLA_C = r'\}' 
         t_CORCH_A = r'\['
         t_CORCH_C = r'\]'
         t_COMA = r','
         t_2PUNTOS = r':'
         t_COMILLAS = r'"'
-        t_ignore_COMMENT = r'\#.*'
         t_GUION = r'-'
         t_PUNTO = r'.'
         
@@ -24,129 +23,129 @@ class LexerTokens(object):
     # Expresiones regulares para tokens especificos
         def t_NOMBRE_TEAM(self,t):
             r'"nombre_equipo"'
-            print('Token del tipo : nombre_equipo')
+            print('Token nombre_equipo encontrado')
 
 
         def t_IDENTIDAD(self,t):
             r'"identidad_equipo"'
-            print('Token del tipo : identidad_equipo')
+            print('Token identidad_equipo encontrado')
 
 
         def t_LINK(self,t):
             r'"link"'
-            print('Token del tipo : link')
+            print('Token link encontrado')
 
 
         def t_ASIGNATURA(self,t):
             r'"asignatura"'
-            print('Token del tipo : asignatura')
+            print('Token asignatura encontrado')
 
 
         def t_CARRERA(self,t):
             r'"carrera"'
-            print('Token del tipo : carrera')
+            print('Token carrera encontrado')
 
 
         def t_UNIVERSIDAD(self,t):
             r'"universidad_regional"'
-            print('Token del tipo : universidad_regional')
+            print('Token universidad_regional encontrado')
 
 
         def t_DIRECCION(self,t):
             r'"direccion"'
-            print('Token del tipo : "direccion"')
+            print('Token direccion encontrado')
 
 
         def t_CALLE(self,t):
             r'"calle"'
-            print('Token del tipo : calle')
+            print('Token calle encontrado')
 
 
         def t_CIUDAD(self,t):
             r'"CIUDAD"'
-            print('Token del tipo : ciudad')
+            print('Token ciudad encontrado')
 
 
         def t_PAIS(self,t):
             r'"pais"'
-            print('Token del tipo : pais')
+            print('Token pais encontrado')
 
 
         def t_ACTIVO(self,t):
             r'"activo"'
-            print('Token del tipo : activo')
+            print('Token activo encontrado')
 
 
         def t_FECHA_FIN(self,t):
             r'"fecha_fin"'
-            print('Token del tipo : fecha_fin')
+            print('Token fecha_fin encontrado')
 
         def t_FECHA_INICIO(self,t):
             r'"fecha_inicio"'
-            print('Token del tipo : fecha_inicio')
+            print('Token fecha_inicio encontrado')
 
 
         def t_ALIANZA(self,t):
             r'"alianza"'
-            print('Token del tipo : alianza')
+            print('Token alianza encontrado')
 
 
         def t_CARGO(self,t):
             r'"cargo"'
-            print('Token del tipo : cargo')
+            print('Token cargo encontrado')
 
 
         def t_ESTADO(self,t):
             r'"estado"'
-            print('Token del tipo : estado')
+            print('Token estado encontrado')
 
 
         def t_VIDEO(self,t):
             r'"video"'
-            print('Token del tipo : video')
+            print('Token video encontrado')
 
 
         def t_EDAD(self,t):
             r'"edad"'
-            print('Token del tipo : edad')
+            print('Token edad encontrado')
 
 
         def t_FOTO(self,t):
             r'"foto"'
-            print('Token del tipo : foto')
+            print('Token foto encontrado')
 
 
         def t_CONCLUSION(self,t):
             r'"conclusion"'
-            print('Token del tipo : conclusion')
+            print('Token conclusion encontrado')
 
 
         def t_INTEGER(self,t):
             r'\d+'
-            print('Token del tipo : integer')
+            print('Token integer encontrado')
 
         def t_EMAIL(self,t):
             r'"[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"'
-            print('Token del tipo : EMAIL')
+            print('Token EMAIL encontrado')
 
         def t_STRING(self,t):
             r'\"([^\\\n]|(\\.))*?\"'
-            print('Token del tipo : string')
+            print('Token string encontrado')
 
 
         def t_BOOLEAN(self,t):
             r'true|false'
-            print('Token del tipo : boolean')
+            print('Token boolean encontrado')
 
 
         def t_FLOAT(self,t):
             r'\d+\. \d+'
-            print('Token del tipo : float')
+            print('Token float encontrado')
 
 
         def t_DATE(self,t):
             r'"\d{4}-\d{2}-\d{2}"'
-            print('Token del tipo : date')
+            print('Token date encontrado')
         
 
         # Ignorar espacios y tabulaciones
@@ -177,7 +176,7 @@ class LexerTokens(object):
                 tok = self.lexer.token()
                 if not tok:
                     break
-                print(f'TOKEN ENCONTRADO: {tok.type}\n')
+                print(f'Token simple : {tok.type} encontrado\n')
             
             
 

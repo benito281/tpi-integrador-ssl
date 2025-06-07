@@ -1,11 +1,11 @@
 
-from lexer import LexerTokens as mytokens
+from lexer import LexerTokens as tokens
 
-lexer = mytokens()
+lexer = tokens() #Instancia de la clase LexerTokens
 lexer.build() #Construye el LEXER
 
 def leer_json_teclado():
-    print("Ingrese el JSON (Presione ENTER y escriba FIN, luego enter):")
+    print("Ingrese el JSON por teclado (Presione ENTER y escriba FIN para terminar):")
     lineas = []
     try:
         while True:
@@ -16,8 +16,6 @@ def leer_json_teclado():
     except EOFError:
         pass
     return '\n'.join(lineas)
-
-
 
 
 def leer_json_archivo(nombre_arch):
@@ -52,8 +50,6 @@ def principal():
         # Tokenizar el texto JSON mostrar mensaje
         lexer.test(texto_json)
         
-
-
         if opcion == '1':
             repetir = input("¿Desea ingresar otro JSON? (s/n): ")
             if repetir.lower() != 's':
