@@ -1,4 +1,3 @@
-
 from lexer import LexerTokens as tokens
 
 lexer = tokens() #Instancia de la clase LexerTokens
@@ -17,7 +16,6 @@ def leer_json_teclado():
         pass
     return '\n'.join(lineas)
 
-
 def leer_json_archivo(nombre_arch):
     try:
         with open(nombre_arch, 'r', encoding='utf-8') as file:
@@ -26,35 +24,41 @@ def leer_json_archivo(nombre_arch):
         print(f"Archivo no encontrado: {nombre_arch}")
         return None
 
-
 # Función principal
 def principal():
     while True:
-        opcion = input(
-            "Seleccione una opción (1: Ingresar JSON por teclado, 2: Leer JSON desde archivo, 3: Salir): ")
-        if opcion == '1':
-            texto_json = leer_json_teclado()
-        elif opcion == '2':
-            nombre_arch = input(
-                "Ingrese el nombre del archivo (ruta completa si no está en el mismo directorio): ")
-            texto_json = leer_json_archivo(nombre_arch)
-            if texto_json is None:
-                continue
-        elif opcion == '3':
-            print("Saliendo...")
-            break
-        else:
-            print("Opción no válida")
-            continue
-
-        # Tokenizar el texto JSON mostrar mensaje
-        lexer.test(texto_json)
-        
-        if opcion == '1':
-            repetir = input("¿Desea ingresar otro JSON? (s/n): ")
-            if repetir.lower() != 's':
+        try:
+            opcion = input(
+                "Seleccione una opción (1: Ingresar JSON por teclado, 2: Leer JSON desde archivo, 3: Salir): ")
+            if opcion == '1':
+                texto_json = leer_json_teclado()
+            elif opcion == '2':
+                nombre_arch = input(
+                    "Ingrese el nombre del archivo (ruta completa si no está en el mismo directorio): ")
+                texto_json = leer_json_archivo(nombre_arch)
+                if texto_json is None:
+                    continue
+            elif opcion == '3':
+                print("Saliendo...")
                 break
+            else:
+                print("Opción no válida")
+                continue
 
+            # Tokenizar el texto JSON mostrar mensaje
+            lexer.test(texto_json)
+            
+            if opcion == '1':
+                repetir = input("¿Desea ingresar otro JSON? (s/n): ")
+                if repetir.lower() != 's':
+                    break
+        
+        # Si se ingresa un caracter de fin de archivo debemos
+        # abortar la ejecución.
+        except EOFError:
+            print("\n")
+            print("Caracter de fin de archivo ingresado!")
+            break
 
 if __name__ == "__main__":
     principal()

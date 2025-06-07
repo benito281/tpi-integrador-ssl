@@ -31,41 +31,33 @@ def t_LINK(t):
     r'"link"'
     print('TOKEN ENCONTRADO: "link"')
 
-
 def t_ASIGNATURA(t):
     r'"asignatura"'
     print('TOKEN ENCONTRADO:"asignatura"')
-
 
 def t_CARRERA(t):
     r'"carrera"'
     print('TOKEN ENCONTRADO: "carrera"')
 
-
 def t_UNIVERSIDAD(t):
     r'"universidad_regional"'
     print('TOKEN ENCONTRADO: "universidad_regional')
-
 
 def t_DIRECCION(t):
     r'"direccion"'
     print('TOKEN ENCONTRADO: "direccion"')
 
-
 def t_CALLE(t):
     r'"calle"'
     print('TOKEN ENCONTRADO: "calle"')
-
 
 def t_CIUDAD(t):
     r'"CIUDAD"'
     print('TOKEN ENCONTRADO: "ciudad"')
 
-
 def t_PAIS(t):
     r'"pais"'
     print('TOKEN ENCONTRADO: "pais"')
-
 
 def t_ACTIVO(t):
     r'"activo"'
@@ -96,26 +88,21 @@ def t_ESTADO(t):
     r'"estado"'
     print('TOKEN ENCONTRADO: "estado"')
 
-
 def t_VIDEO(t):
     r'"video"'
     print('TOKEN ENCONTRADO: "video"')
-
 
 def t_EDAD(t):
     r'"edad"'
     print('TOKEN ENCONTRADO: "edad"')
 
-
 def t_FOTO(t):
     r'"foto"'
     print('TOKEN ENCONTRADO: "foto"')
 
-
 def t_CONCLUSION(t):
     r'"conclusion"'
     print('"TOKEN ENCONTRADO: conclusion"')
-
 
 def t_INTEGER(t):
     r'\d+'
