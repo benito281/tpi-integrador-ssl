@@ -58,8 +58,6 @@ def principal():
                 print("A continuación, deberá introducir el nombre del archivo JSON que se")
                 print("desea analizar. Si este se encuentra en otra carpeta, recuerde que")
                 print("debe especificar su ubicación.\n")
-                print("(En Windows, no se olvide de presionar ENTER luego de introducir el")
-                print("CTRL + Z)\n")
                 nombre_arch = input("Nombre del archivo: ")
                 print("-------------------------------------------------------------------")
                 texto_json = leer_json_archivo(nombre_arch)
@@ -83,6 +81,8 @@ def principal():
                 print("-------------------------------------------------------------------")
                 print("Ingrese 'S' o 's' si desea volver al menú, y CTRL + Z (CTRL + D en")
                 print("Linux) para salir del programa.\n")
+                print("(En Windows, no se olvide de presionar ENTER luego de introducir el")
+                print("CTRL + Z)\n")
                 repetir = input("Elección: ")
 
                 # Elegimos qué hacer en función de la elección.
